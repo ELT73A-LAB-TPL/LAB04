@@ -11,3 +11,106 @@
 - https://www.st.com/en/development-tools/stm32cubemx.html
 - https://www.st.com/en/development-tools/stm32cubeclt.html
 - https://www.st.com/en/development-tools/stm32cubeprog.html
+
+# MX help
+
+```bash
+Usage:
+ log
+  log <level>
+ set
+ import
+ ocxtest
+  ocxt <opt_ide:all|iar|keil|sw4> <opt_copy_fw:NONE|LITE|FULL> <opt_usr_cubex_path: open cube example test
+ MultiConfig
+ load
+  load <mcu>: open mcu xml file
+ get
+ lock
+ reset
+ clearpinout
+  clearpinout: remove all the pin mapping
+ possible_value
+ not_a_possible_value
+ add
+ check
+ csv
+ generate
+ tinyload
+  tinyload <mcu>: load mcu for pinout only
+ waitclock
+  Wait for a delay in seconds until clock has finished its initialization
+ switch
+ unset
+ export
+ list
+ loadboard
+  loadboard <boardname> <allmodes>]|<nomode> load a board with or without modes
+ project
+ setDriver
+  set Ip driver
+ SetStructure
+  Set Application structure (Advanced/Basic).
+ SetCopyLibrary
+  Set Copy Library (copy all/ copy only / copy as reference).
+ pinout
+ disable
+ login
+  login using email and password: login <email> <password>
+ logout
+  logout
+ login_with_gui
+  login_with_gui
+ tooltip
+ clock
+ updateIpUI
+  update UI <IpName>: update the UI for a given IP
+ swmgr
+ config
+ user_analytics
+  user_analytics <true|false>
+ simulate
+ isPluginError
+  isPluginError <pluginName>, where pluginName can be "Clock Configuration", "Pinout & Configuration"
+ exit_mx
+  exit_mx: leave mx same way than exit menu
+ setprop
+  set a system property: setprop <property> <value>
+ getprop
+  get a system property: getprop <property>
+ getenv
+  get an environment variable: getenv <variable>
+ xcopy
+  xcopy
+        <sw_vendor>
+        <sw_version>
+        <example_name>
+        <example_path>
+        <ide:all|iar|keil|swb|cube> default:all
+        <copy_fw:NONE|LITE|FULL> default:LITE
+        <opt:user_example_path> default:$HOME/STM32CubEX
+        <opt:fw_path> default:$HOME/STM32Cube/Repository
+        <opt:board_name> default: empty
+Description: Open cube example test
+Example: xcopy "STMicroelectronics" "X-CUBE-BLE2_V3.2.0" "Beacon" "/Projects/NUCLEO-L476RG/Applications/Beacon" "all" "LITE" "" "" "NUCLEO-L476RG"
+ xts
+  example testsuite
+ xtest
+  xtest <args> : example test command
+ xbuild
+  xbuild <project_path>
+Description: automatic build command
+Example: xbuild "C:\Users\chaumont\STM32Cube\Example\CORTEX_MPU"
+ popupwrapper
+ xcubedl
+  xcubedl <packname> : X-CUBE Download
+ Help
+  help: Print Help
+ Exit
+  exit: Exit process
+ script
+  script <file>: execute all command in file
+ dma
+ NVIC
+ pack
+ ```
