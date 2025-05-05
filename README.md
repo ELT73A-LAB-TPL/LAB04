@@ -124,5 +124,9 @@ Example: xbuild "C:\Users\chaumont\STM32Cube\Example\CORTEX_MPU"
 ```bash
 MX> export script C:\SomePath\ScriptToLoad.txt 
 ```
+How to load the script
+```bash
+"%STM32CubeMX_PATH%\jre\bin\java" -jar "%STM32CubeMX_PATH%\STM32CubeMX.exe" -s ScriptToLoad.txt
+```
 
 
