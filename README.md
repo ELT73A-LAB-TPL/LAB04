@@ -1,4 +1,4 @@
-# LAB03 template for ELT73A course 
+# LAB04 template for ELT73A course 
 
 ## MiniF4-STM32F401CEU6
 - https://github.com/WeActStudio/WeActStudio.MiniSTM32F4x1
