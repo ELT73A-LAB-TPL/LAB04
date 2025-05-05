@@ -2,7 +2,7 @@
 setlocal EnableDelayedExpansion
 
 :: Set Default Project Name
-set "DEFAULT_NAME=STM32F411CEUx_LAB02"
+set "DEFAULT_NAME=STM32F411CEUx_LAB04a"
 
 :: Asks for Project Name
 set /p PJT_NAME="Enter a valid project name (or press Enter to use '%DEFAULT_NAME%'): "
@@ -29,6 +29,21 @@ if defined STM32CubeMX_PATH (
     )
 ) else (
     echo STM32CubeMX_PATH is not defined.
+    pause
+    exit /b 1
+)
+
+if defined STM32CLT_PATH (
+    if exist "%STM32CLT_PATH%" (
+        echo STM32CLT_PATH exists and points to a valid directory: %STM32CLT_PATH%
+		echo %STM32CLT_PATH% > STM32CLT_PATH.txt
+    ) else (
+        echo STM32CLT_PATH is defined but the directory does not exist: %STM32CLT_PATH%
+		pause
+		exit /b 1
+    )
+) else (
+    echo STM32CLT_PATH is not defined.
     pause
     exit /b 1
 )
