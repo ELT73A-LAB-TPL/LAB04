@@ -1,5 +1,5 @@
 # Ignore STM32CubeMX-generated files
-*.ioc
+#*.ioc
 *.bak
 MX/
 
