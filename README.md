@@ -122,7 +122,7 @@ Example: xbuild "C:\Users\chaumont\STM32Cube\Example\CORTEX_MPU"
  ```
 ### MX export 
 ```bash
-MX> export script C:\SomePath\ScriptToLoad.txt 
+export script ScriptToLoad.txt
 ```
 How to load the script
 ```bash
