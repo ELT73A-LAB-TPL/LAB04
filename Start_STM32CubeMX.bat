@@ -22,6 +22,7 @@ set "SCRIPT_FILE=%SCRIPT_PATH%\LoadScript.txt"  :: Optional: Specify script file
 if defined STM32CubeMX_PATH (
     if exist "%STM32CubeMX_PATH%" (
         echo STM32CubeMX_PATH exists and points to a valid directory: %STM32CubeMX_PATH%
+	echo %STM32CubeMX_PATH% > STM32CubeMX_PATH.txt
     ) else (
         echo STM32CubeMX_PATH is defined but the directory does not exist: %STM32CubeMX_PATH%
 		pause
