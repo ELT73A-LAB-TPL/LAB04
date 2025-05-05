@@ -13,7 +13,8 @@
 - https://www.st.com/en/development-tools/stm32cubeprog.html
 
 ## MX help
-
+- https://www.st.com/resource/en/user_manual/um1718-stm32cubemx-for-stm32-configuration-and-initialization-c-code-generation-stmicroelectronics.pdf
+  
 ```bash
 Usage:
  log
