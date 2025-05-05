@@ -12,9 +12,14 @@
 - https://www.st.com/en/development-tools/stm32cubeclt.html
 - https://www.st.com/en/development-tools/stm32cubeprog.html
 
-## MX help
+## Running STM32CubeMX in command-line mode
 - https://www.st.com/resource/en/user_manual/um1718-stm32cubemx-for-stm32-configuration-and-initialization-c-code-generation-stmicroelectronics.pdf
   
+```bash
+"%STM32CubeMX_PATH%\jre\bin\java" -jar "%STM32CubeMX_PATH%\STM32CubeMX.exe" -i
+```
+### MX help
+The “MX>” prompt is displayed, to indicate that the application is ready to accept commands.
 ```bash
 Usage:
  log
@@ -115,14 +120,7 @@ Example: xbuild "C:\Users\chaumont\STM32Cube\Example\CORTEX_MPU"
  NVIC
  pack
  ```
-
-## Running STM32CubeMX in command-line mode
-
-```bash
-"%STM32CubeMX_PATH%\jre\bin\java" -jar "%STM32CubeMX_PATH%\STM32CubeMX.exe" -i
-```
-The “MX>” prompt is displayed, to indicate that the application is ready to accept commands.
-
+### MX export 
 ```bash
 MX> export script C:\SomePath\ScriptToLoad.txt 
 ```
