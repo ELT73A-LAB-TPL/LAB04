@@ -1,5 +1,4 @@
 load STM32F411C(C-E)Ux
-load STM32F411C(C-E)Ux
 set pin "PC13-ANTI_TAMP" GPIO_Output
 set pin "PC14-OSC32_IN" RCC_OSC32_IN
 lock pin "PC14-OSC32_IN" false
