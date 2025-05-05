@@ -2,15 +2,7 @@
 name: CMake Build Test in All Folders
 
 on:
-  # Triggers the workflow on push, pull request events, or manual dispatch
-  push:
-    branches: [ "main" ]
-    paths-ignore:
-      - "**/*.md"
-  pull_request:
-    branches: [ "main" ]
-    paths-ignore:
-      - "**/*.md"
+  # Triggers the workflow on manual dispatch
   workflow_dispatch:
 
 env:
