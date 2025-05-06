@@ -2,7 +2,7 @@
 setlocal EnableDelayedExpansion
 
 :: Set Default Project Name
-set "DEFAULT_NAME=STM32F411CEUx_LAB04a"
+set "DEFAULT_NAME=STM32F411CEUx"
 set "DEFAULT_SCRIPT=BaseScript.txt"
 
 :: Set the Documents path
