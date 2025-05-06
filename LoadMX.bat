@@ -112,9 +112,9 @@ echo export script %PJT_FOLDER%\LoadedScript.txt >> %PJT_FOLDER%\LoadScript.txt
 for %%A in (%GC_FLAG%) do set "GC_FLAG=%%A"
 
 if /i "%GC_FLAG%"=="Y" (
-    echo project generate >> %PJT_FOLDER%\LoadScript.txt
+    echo project generate %PJT_FOLDER% >> %PJT_FOLDER%\LoadScript.txt
 ) else if /i "%GC_FLAG%"=="N" (
-    echo #project generate >> %PJT_FOLDER%\LoadScript.txt
+    echo # project generate %PJT_FOLDER% >> %PJT_FOLDER%\LoadScript.txt
 ) else (
     echo Invalid entry. Please enter Y or N.
 )
