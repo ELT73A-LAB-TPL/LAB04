@@ -3,17 +3,7 @@ setlocal EnableDelayedExpansion
 
 :: Set Default Project Name
 set "DEFAULT_NAME=STM32F411CEUx_LAB04a"
-
-:: Asks for Project Name
-set /p PJT_NAME="Enter a valid project name (or press Enter to use '%DEFAULT_NAME%'): "
-
-:: If input is empty, use the default name
-if "%PJT_NAME%"=="" (
-    set "PJT_NAME=%DEFAULT_NAME%"
-)
-
-:: Display the stored project name
-echo Project name stored as: %PJT_NAME%
+set "DEFAULT_SCRIPT=BaseScript.txt"
 
 :: Set the Documents path
 set "SCRIPT_PATH=%~dp0"
@@ -22,7 +12,6 @@ set "SCRIPT_FILE=%SCRIPT_PATH%\LoadScript.txt"  :: Optional: Specify script file
 if defined STM32CubeMX_PATH (
     if exist "%STM32CubeMX_PATH%" (
         echo STM32CubeMX_PATH exists and points to a valid directory: %STM32CubeMX_PATH%
-	echo %STM32CubeMX_PATH% > STM32CubeMX_PATH.txt
     ) else (
         echo STM32CubeMX_PATH is defined but the directory does not exist: %STM32CubeMX_PATH%
 		pause
@@ -37,7 +26,6 @@ if defined STM32CubeMX_PATH (
 if defined STM32CLT_PATH (
     if exist "%STM32CLT_PATH%" (
         echo STM32CLT_PATH exists and points to a valid directory: %STM32CLT_PATH%
-		echo %STM32CLT_PATH% > STM32CLT_PATH.txt
     ) else (
         echo STM32CLT_PATH is defined but the directory does not exist: %STM32CLT_PATH%
 		pause
@@ -74,32 +62,32 @@ if defined STM32CubeMX_PATH (
     set "STM32CUBEMX_PATH=%STM32CubeMX_PATH%\STM32CubeMX.exe"
 )
 
-set "DEFAULT_FLAG=N"
-set /p GC_FLAG="Generate Code? (Y/N, default is 'N'): "
+:: Asks for Project Name
+set /p PJT_NAME="Enter a valid project name (or press Enter to use '%DEFAULT_NAME%'): "
+
+:: If input is empty, use the default name
+if "%PJT_NAME%"=="" (
+    set "PJT_NAME=%DEFAULT_NAME%"
+)
+
+:: Display the stored project name
+echo Project name stored as: %PJT_NAME%
+
+
+set /p LOAD_SCRIPT="Script to load? (Default is BaseScript.txt): "
 
 :: If input is empty, use default value
-if "%GC_FLAG%"=="" (
-    set "GC_FLAG=%DEFAULT_FLAG%"
+if "%LOAD_SCRIPT%"=="" (
+    set "LOAD_SCRIPT=%DEFAULT_SCRIPT%"
 )
 
 :: Add project info
-copy /Y BaseScript.txt LoadScript.txt
+copy /Y %LOAD_SCRIPT% LoadScript.txt
 echo BaseScript.txt copied to LoadScript.txt successfully!
 echo project name %PJT_NAME% >> LoadScript.txt
 echo project toolchain "CMake" >> LoadScript.txt
 echo project path %SCRIPT_PATH% >> LoadScript.txt
 echo export script %SCRIPT_PATH%LoadedScript.txt >> LoadScript.txt
-
-:: Convert input to uppercase for consistency
-for %%A in (%GC_FLAG%) do set "GC_FLAG=%%A"
-
-if /i "%GC_FLAG%"=="Y" (
-    echo project generate >> LoadScript.txt
-) else if /i "%GC_FLAG%"=="N" (
-    echo #project generate >> LoadScript.txt
-) else (
-    echo Invalid entry. Please enter Y or N.
-)
 
 :: Run the command
 echo Running STM32CubeMX...
@@ -119,5 +107,3 @@ if %ERRORLEVEL% neq 0 (
 echo STM32CubeMX executed successfully.
 pause
 endlocal
-
-
