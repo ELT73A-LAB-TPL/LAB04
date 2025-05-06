@@ -59,7 +59,7 @@ Opens STM32CubeMX with provided Project Name and Script Name and loads default v
 ```bash
 LoadMX ProjectName ScriptName.txt
 ```
-Opens STM32CubeMX with provided Project Name, Script Name and generate code
+Opens STM32CubeMX with provided Project Name, Script Name and generate code flag
 ```bash
 LoadMX ProjectName ScriptName.txt Y
 ``` 
