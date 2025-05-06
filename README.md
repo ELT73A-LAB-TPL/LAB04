@@ -18,6 +18,22 @@
 ```bash
 "%STM32CubeMX_PATH%\jre\bin\java" -jar "%STM32CubeMX_PATH%\STM32CubeMX.exe" -i
 ```
+### Open STM32CubeMX
+```bash
+OpenMx
+```
+
+```bash
+OpenMx STM32F411CEUx
+```
+
+### Load STM32CubeMX Script
+
+```bash
+OpenMx STM32F411CEUx
+```
+
+
 ### MX help
 The “MX>” prompt is displayed, to indicate that the application is ready to accept commands.
 ```bash
