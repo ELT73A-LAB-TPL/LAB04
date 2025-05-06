@@ -28,11 +28,27 @@ OpenMx STM32F411CEUx
 ```
 
 ### Load STM32CubeMX Script
-
+Load default values
 ```bash
-OpenMx STM32F411CEUx
+LoadMX
 ```
+Load with Project Name
+```bash
+LoadMX ProjectName
+```
+Load with Project Name and Script Name
+```bash
+LoadMX ProjectName ScriptName.txt
+```
+Load with Project Name, Script Name and generate code
+```bash
+LoadMX ProjectName ScriptName.txt Y
+``` 
 
+### MX export 
+```bash
+export script ScriptToLoad.txt
+```
 
 ### MX help
 The “MX>” prompt is displayed, to indicate that the application is ready to accept commands.
