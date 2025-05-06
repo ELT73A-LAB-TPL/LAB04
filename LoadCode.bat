@@ -14,16 +14,11 @@ if not exist "%PROJECT_PATH%" (
     pause
     exit /b
 )
+
+:: Check if the project contains a CMakeLists.txt file
 if not exist "%PROJECT_PATH%\CMakeLists.txt" (
     echo Error: CMakeLists.txt not found in the project path!
     echo Ensure this is a valid STM32CubeMX CMake project.
-    pause
-    exit /b
-)
-
-:: Verify that PROJECT_PATH exists and is a valid STM32CubeMX project
-if not exist "%PROJECT_PATH%" (
-    echo Error: Project path does not exist!
     pause
     exit /b
 )
