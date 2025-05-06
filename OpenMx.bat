@@ -4,6 +4,8 @@ setlocal EnableDelayedExpansion
 :: Set Default MCU Name
 set "DEFAULT_MCU=STM32F411C(C-E)Ux"
 set "SCRIPT_FILE=%TEMP%\LoadMCU.txt"
+:: Set the Documents path
+set "SCRIPT_PATH=%~dp0"
 
 :: Check if arguments are passed, otherwise use defaults
 if "%~1"=="" (
@@ -13,6 +15,8 @@ if "%~1"=="" (
 )
 
 echo load %MCU_NAME% >> %SCRIPT_FILE%
+echo project toolchain "CMake" >> %SCRIPT_FILE%
+:: echo project path %SCRIPT_PATH% >> %SCRIPT_FILE%
 
 if defined STM32CubeMX_PATH (
     if exist "%STM32CubeMX_PATH%" (
