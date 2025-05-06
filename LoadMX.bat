@@ -4,6 +4,7 @@ setlocal EnableDelayedExpansion
 :: Set Default Project Name
 set "DEFAULT_NAME=STM32F411CEUx"
 set "DEFAULT_SCRIPT=BaseScript.txt"
+set "DEFAULT_FLAG=N"
 
 :: Check if arguments are passed, otherwise use defaults
 if "%~1"=="" (
@@ -18,12 +19,33 @@ if "%~2"=="" (
     set "LOAD_SCRIPT=%~2"
 )
 
+if "%~3"=="" (
+    set "GC_FLAG=%DEFAULT_FLAG%"
+) else (
+    set "GC_FLAG=%~3"
+)
+
+
 echo Project name stored as: %PJT_NAME%
 echo Script file stored as: %LOAD_SCRIPT%
 
 :: Set the Documents path
 set "SCRIPT_PATH=%~dp0"
-set "SCRIPT_FILE=%SCRIPT_PATH%\LoadScript.txt"  :: Optional: Specify script file for -s, e.g., script.xml
+
+:: Define folder paths
+set "PJT_FOLDER=%SCRIPT_PATH%%PJT_NAME%"
+
+:: Check if project folder exists, create if not
+if not exist "%PJT_FOLDER%" (
+    echo Creating project folder...
+    mkdir "%PJT_FOLDER%"
+) else (
+    echo Project folder already exists.
+	pause
+	exit /b 1
+)
+
+set "SCRIPT_FILE=%PJT_FOLDER%\LoadScript.txt"  :: Optional: Specify script file for -s, e.g., script.xml
 
 if defined STM32CubeMX_PATH (
     if exist "%STM32CubeMX_PATH%" (
@@ -79,12 +101,23 @@ if defined STM32CubeMX_PATH (
 )
 
 :: Add project info
-copy /Y %LOAD_SCRIPT% LoadScript.txt
+copy /Y %LOAD_SCRIPT% %PJT_FOLDER%\LoadScript.txt
 echo BaseScript.txt copied to LoadScript.txt successfully!
-echo project name %PJT_NAME% >> LoadScript.txt
-echo project toolchain "CMake" >> LoadScript.txt
-echo project path %SCRIPT_PATH% >> LoadScript.txt
-echo export script %SCRIPT_PATH%LoadedScript.txt >> LoadScript.txt
+echo project name %PJT_NAME% >> %PJT_FOLDER%\LoadScript.txt
+echo project toolchain "CMake" >> %PJT_FOLDER%\LoadScript.txt
+echo project path %SCRIPT_PATH% >> %PJT_FOLDER%\LoadScript.txt
+echo export script %PJT_FOLDER%\LoadedScript.txt >> %PJT_FOLDER%\LoadScript.txt
+
+:: Convert input to uppercase for consistency
+for %%A in (%GC_FLAG%) do set "GC_FLAG=%%A"
+
+if /i "%GC_FLAG%"=="Y" (
+    echo project generate >> %PJT_FOLDER%\LoadScript.txt
+) else if /i "%GC_FLAG%"=="N" (
+    echo #project generate >> %PJT_FOLDER%\LoadScript.txt
+) else (
+    echo Invalid entry. Please enter Y or N.
+)
 
 :: Run the command
 echo Running STM32CubeMX...
