@@ -102,7 +102,6 @@ if defined STM32CubeMX_PATH (
 
 :: Add project info
 copy /Y %LOAD_SCRIPT% %PJT_FOLDER%\LoadScript.txt
-echo BaseScript.txt copied to LoadScript.txt successfully!
 echo project name %PJT_NAME% >> %PJT_FOLDER%\LoadScript.txt
 echo project toolchain "CMake" >> %PJT_FOLDER%\LoadScript.txt
 echo project path %SCRIPT_PATH% >> %PJT_FOLDER%\LoadScript.txt
