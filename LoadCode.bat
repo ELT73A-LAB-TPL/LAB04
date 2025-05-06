@@ -25,7 +25,8 @@ if not exist "%PROJECT_PATH%\CMakeLists.txt" (
 
 :: Open Visual Studio Code with STM32 extension for project setup
 echo Opening project in VSCode using STM32 Extension...
-code --add "%PROJECT_PATH%" --extension STM32-MCU
+:: code --add "%PROJECT_PATH%" --extension STM32-MCU
+code --add "%PROJECT_PATH%" 
 
 echo Import complete!
 pause
