@@ -24,6 +24,35 @@ git push
 git log
 ```
 
+
+### Load STM32CubeMX Script
+
+Call for Help (--help, -h, /?)
+```bash
+LoadMX --help
+```
+Run STM32CubeMX interactively
+```bash
+LoadMX -i
+```
+Opens STM32CubeMX and loads default values for Project Name, Script and Code Generation (STM32F411CEUx, BaseScript.txt and N)
+```bash
+LoadMX
+```
+Load with Project Name
+Opens STM32CubeMX with provided Project Name and loads default values for Script and Code Generation (BaseScript.txt and N)
+```bash
+LoadMX ProjectName
+```
+Opens STM32CubeMX with provided Project Name and Script Name and loads default value for Code Generation (N)
+```bash
+LoadMX ProjectName ScriptName.txt
+```
+Opens STM32CubeMX with provided Project Name, Script Name and generate code
+```bash
+LoadMX ProjectName ScriptName.txt Y
+```
+
 ## MiniF4-STM32F401CEU6
 - https://github.com/WeActStudio/WeActStudio.MiniSTM32F4x1
   
@@ -58,137 +87,5 @@ To generate a script
 ```bash
 export script ScriptToLoad.txt
 ```
-
-### Open STM32CubeMX
-Opens STM32CubeMX and loads STM32F411CEUx
-```bash
-OpenMX
-```
-Opens STM32CubeMX and loads provided MCU
-```bash
-OpenMX STM32F411CEUx
-```
-
-### Load STM32CubeMX Script
-Opens STM32CubeMX and loads default values for Project Name, Script and Code Generation (STM32F411CEUx, BaseScript.txt and N)
-```bash
-LoadMX
-```
-Load with Project Name
-Opens STM32CubeMX with provided Project Name and loads default values for Script and Code Generation (BaseScript.txt and N)
-```bash
-LoadMX ProjectName
-```
-Opens STM32CubeMX with provided Project Name and Script Name and loads default value for Code Generation (N)
-```bash
-LoadMX ProjectName ScriptName.txt
-```
-Opens STM32CubeMX with provided Project Name, Script Name and generate code flag
-```bash
-LoadMX ProjectName ScriptName.txt Y
-``` 
-
-### MX help
-The “MX>” prompt is displayed, to indicate that the application is ready to accept commands.
-```bash
-Usage:
- log
-  log <level>
- set
- import
- ocxtest
-  ocxt <opt_ide:all|iar|keil|sw4> <opt_copy_fw:NONE|LITE|FULL> <opt_usr_cubex_path: open cube example test
- MultiConfig
- load
-  load <mcu>: open mcu xml file
- get
- lock
- reset
- clearpinout
-  clearpinout: remove all the pin mapping
- possible_value
- not_a_possible_value
- add
- check
- csv
- generate
- tinyload
-  tinyload <mcu>: load mcu for pinout only
- waitclock
-  Wait for a delay in seconds until clock has finished its initialization
- switch
- unset
- export
- list
- loadboard
-  loadboard <boardname> <allmodes>]|<nomode> load a board with or without modes
- project
- setDriver
-  set Ip driver
- SetStructure
-  Set Application structure (Advanced/Basic).
- SetCopyLibrary
-  Set Copy Library (copy all/ copy only / copy as reference).
- pinout
- disable
- login
-  login using email and password: login <email> <password>
- logout
-  logout
- login_with_gui
-  login_with_gui
- tooltip
- clock
- updateIpUI
-  update UI <IpName>: update the UI for a given IP
- swmgr
- config
- user_analytics
-  user_analytics <true|false>
- simulate
- isPluginError
-  isPluginError <pluginName>, where pluginName can be "Clock Configuration", "Pinout & Configuration"
- exit_mx
-  exit_mx: leave mx same way than exit menu
- setprop
-  set a system property: setprop <property> <value>
- getprop
-  get a system property: getprop <property>
- getenv
-  get an environment variable: getenv <variable>
- xcopy
-  xcopy
-        <sw_vendor>
-        <sw_version>
-        <example_name>
-        <example_path>
-        <ide:all|iar|keil|swb|cube> default:all
-        <copy_fw:NONE|LITE|FULL> default:LITE
-        <opt:user_example_path> default:$HOME/STM32CubEX
-        <opt:fw_path> default:$HOME/STM32Cube/Repository
-        <opt:board_name> default: empty
-Description: Open cube example test
-Example: xcopy "STMicroelectronics" "X-CUBE-BLE2_V3.2.0" "Beacon" "/Projects/NUCLEO-L476RG/Applications/Beacon" "all" "LITE" "" "" "NUCLEO-L476RG"
- xts
-  example testsuite
- xtest
-  xtest <args> : example test command
- xbuild
-  xbuild <project_path>
-Description: automatic build command
-Example: xbuild "C:\Users\chaumont\STM32Cube\Example\CORTEX_MPU"
- popupwrapper
- xcubedl
-  xcubedl <packname> : X-CUBE Download
- Help
-  help: Print Help
- Exit
-  exit: Exit process
- script
-  script <file>: execute all command in file
- dma
- NVIC
- pack
- ```
 
 
