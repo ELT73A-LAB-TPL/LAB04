@@ -1,5 +1,29 @@
 # LAB04 template for ELT73A course 
 
+## Git commands
+How to config git
+```bash
+git config --global user.name "Your Name"
+git config --global user.email yourmail@domain.tld
+```
+It's recommended to verify that the your Git installation is not performing any transformation between LFs and CRLFs. 
+
+```bash
+git config --global core.autocrlf false
+```
+```bash
+git config list --show-origin
+```
+How to commit updates
+```bash
+cd LAB04
+git status
+git add .
+git commit -m "My message for this commit!"
+git push
+git log
+```
+
 ## MiniF4-STM32F401CEU6
 - https://github.com/WeActStudio/WeActStudio.MiniSTM32F4x1
   
