@@ -24,6 +24,12 @@ git push
 git log
 ```
 
+Generate code, TIM2 with EXT INT
+```bash
+LoadMX TIM2EXTI0 TIM2EXTI0.txt
+```
+
+
 ## Running STM32CubeMX in command-line mode
  - https://ruseleredu.github.io/stm32doc/docs/loadmx
 
