@@ -68,20 +68,6 @@ if defined STM32CubeMX_PATH (
     exit /b 1
 )
 
-if defined STM32CLT_PATH (
-    if exist "%STM32CLT_PATH%" (
-        echo STM32CLT_PATH exists and points to a valid directory: %STM32CLT_PATH%
-    ) else (
-        echo STM32CLT_PATH is defined but the directory does not exist: %STM32CLT_PATH%
-		pause
-		exit /b 1
-    )
-) else (
-    echo STM32CLT_PATH is not defined.
-    pause
-    exit /b 1
-)
-
 :: Set paths (adjust these based on your installation)
 set "JAVA_PATH=%STM32CubeMX_PATH%\jre\bin\java.exe"
 
